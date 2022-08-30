@@ -33,6 +33,8 @@ test("Popover responds to hover", async () => {
   const popover = screen.getByText(/No ice cream will actually be delivered/i);
   expect(popover).toBeInTheDocument();
 
+  // SOLUTION
+  // Warning: An update to Overlay inside a test was not wrapped in act(...)
   userEvent.unhover(teesAndCees);
   await waitForElementToBeRemoved(screen.queryByText(/No ice cream will actually be delivered/i));
   // const nullPopover2 = screen.queryByText(/No ice cream will actually be delivered/i);
