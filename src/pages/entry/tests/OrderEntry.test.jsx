@@ -1,9 +1,8 @@
-import { screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "../../../test-utils/testing-library-utils";
 import { Response } from "miragejs";
 
 import OrderEntry from "../OrderEntry";
 import { makeServer } from "../../../server";
-import { render } from "../../../test-utils/testing-library-utils";
 
 let server;
 

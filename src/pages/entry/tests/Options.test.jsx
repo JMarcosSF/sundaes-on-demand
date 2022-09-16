@@ -1,8 +1,7 @@
-import { screen } from "@testing-library/react";
+import { render, screen } from "../../../test-utils/testing-library-utils";
 
 import Options from "../Options";
 import { makeServer } from "../../../server";
-import { render } from "../../../test-utils/testing-library-utils";
 
 let server;
 
