@@ -1,9 +1,9 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import { Response } from "miragejs";
 
 import OrderEntry from "../OrderEntry";
 import { makeServer } from "../../../server";
-import { OrderDetailsProvider } from "../../../contexts/OrderDetails";
+import { render } from "../../../test-utils/testing-library-utils";
 
 let server;
 
@@ -23,7 +23,7 @@ test("displays image for each scoop from the server", async () => {
     return new Response(500, {}, { errors: ["The database went on vacation"] });
   });
 
-  render(<OrderEntry />, { wrapper: OrderDetailsProvider });
+  render(<OrderEntry />);
   await waitFor(async () => {
     const alerts = await screen.findAllByRole("alert");
     expect(alerts).toHaveLength(2);

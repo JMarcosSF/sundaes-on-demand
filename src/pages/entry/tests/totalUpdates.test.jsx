@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Options from "../Options";
-import { OrderDetailsProvider } from "../../../contexts/OrderDetails";
 import { makeServer } from "../../../server";
+import { render } from "../../../test-utils/testing-library-utils";
 
 let server;
 
@@ -18,7 +18,7 @@ afterEach(() => {
 test("update scoops total when scoops change", async () => {
   // Handling following error
   // Error: Uncaught [Error: useOrderDetails must be used within an OrderDetailsProvider]
-  render(<Options optionType="scoops" />, { wrapper: OrderDetailsProvider });
+  render(<Options optionType="scoops" />);
 
   const scoopsSubtotal = screen.getByText("Scoops total: $", { exact: false });
   expect(scoopsSubtotal).toHaveTextContent("0.00");
