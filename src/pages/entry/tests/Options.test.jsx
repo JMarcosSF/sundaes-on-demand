@@ -1,4 +1,4 @@
-import { render, screen } from "../../../test-utils/testing-library-utils";
+import { render, screen, cleanup } from "../../../test-utils/testing-library-utils";
 
 import Options from "../Options";
 import { makeServer } from "../../../server";
@@ -10,6 +10,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
+    cleanup();
     server.shutdown()
 })
 
